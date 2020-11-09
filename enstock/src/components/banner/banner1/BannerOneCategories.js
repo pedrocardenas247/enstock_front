@@ -26,6 +26,7 @@ const BannerOneCategories = () =>{
                                 <a href={objCategory.path} className="d-block">
                                     <span className="icon-element">
                                         <img src={objCategory.icon}/>
+                                        
                                     </span>
                                     {objCategory.title}
                                 </a>
