@@ -6,7 +6,7 @@ import { BsCheckCircle } from 'react-icons/bs'
 
 class ListingDetailsSidebar extends Component {
     state = {
-        btnText: 'Negocio Verificado',
+        btnVerificated: 'Negocio Verificado',
         btnIcon: <BsCheckCircle />
     }
     render() {
@@ -14,7 +14,7 @@ class ListingDetailsSidebar extends Component {
             <>
                 <div className="author-verified-badge margin-bottom-20px">
                     <div className="author__verified-badge" data-toggle="tooltip" data-placement="top" title="Listing has been verified and belongs the business owner or manager">
-                        <span className="d-inline-block">{this.state.btnIcon}</span> {this.state.btnText}
+                        <span className="d-inline-block">{this.state.btnIcon}</span> {this.state.btnVerificated}
                     </div>
                 </div>
                 <div className="sidebar section-bg">

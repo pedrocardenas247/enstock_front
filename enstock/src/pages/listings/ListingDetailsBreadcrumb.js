@@ -24,7 +24,8 @@ class ListingDetailsBreadcrumb extends Component {
 
     state = {
         title: 'Bodega de Regalos',
-        stitle: 'Av Colonial 3046, Lima',
+        address: 'Av Colonial 3046, Lima',
+        category:  'Ropa y Accesorios',
         shareLinks: [
             {
                 icon: <FaFacebookF />,
@@ -91,12 +92,12 @@ class ListingDetailsBreadcrumb extends Component {
                                             {this.state.title}
                                         </h2>
                                         <p className="breadcrumb__desc">
-                                            <span className="la d-inline-block"><GiPositionMarker /></span> {this.state.stitle}
+                                            <span className="la d-inline-block"><GiPositionMarker /></span> {this.state.address}
                                         </p>
                                         <ul className="listing-info mt-3 mb-3">
                                             <li>
                                                 <span className="theme-btn listing-tag">
-                                                    <i className="d-inline-block"></i> Ropa y Accesorios
+                                                    <i className="d-inline-block"></i> {this.state.category}
                                                 </span>
                                             </li>
                                         </ul>

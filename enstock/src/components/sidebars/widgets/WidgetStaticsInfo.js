@@ -3,7 +3,7 @@ import { BsCheckCircle } from 'react-icons/bs'
 
 class WidgetStaticsInfo extends Component {
     state = {
-        title: 'Formas de Pago',
+        payment: 'Formas de Pago',
         lists: [
             {
                 icon: <BsCheckCircle />,
@@ -32,7 +32,7 @@ class WidgetStaticsInfo extends Component {
             <>
                 <div className="sidebar-widget">
                     <h3 className="widget-title">
-                        {this.state.title}
+                        {this.state.payment}
                     </h3>
                     <div className="title-shape"></div>
                     <div className="info-list static-info padding-top-35px">

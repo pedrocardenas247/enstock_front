@@ -9,7 +9,7 @@ class WidgetAuthor extends Component {
         authorImg: require('../../../assets/images/testi-img2.jpg'),
         address: 'Av. Colonial 3046, Cercado, Lima',
         email: 'info@bodegaderegalos.com',
-        number: '+7(111)123456789',
+        number: '(511)123456789',
         website: 'www.bodegaderegalos.com',
         websiteUrl: 'https://bodegaderegalos.com',
         socials: [

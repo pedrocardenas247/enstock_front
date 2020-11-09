@@ -53,8 +53,12 @@ const categories = [
 
 export default class BannerOneSearchInput extends Component {
     state = {
+        term: '',
         selectedCatOp: null,
         IcoSearch: require("../../../assets/images/ico_search.png"),
+    }
+    onFormSubmit(e){
+        e.preventDefault();
     }
 
     handleChangeCat = () => {
@@ -70,13 +74,17 @@ export default class BannerOneSearchInput extends Component {
 
                     <div className="main-search-input-item">
                         <div className="contact-form-action">
-                            <form action="#">
+                            <form onSubmit={this.onFormSubmit} action="#">
                                 <div className="form-group mb-0">
                                 <span className="form-icon">
                                     <FiSearch/>
                                 </span>
-                                    <input className="form-control" type="text"
-                                           placeholder="¿Que estas buscando?"/>
+                                    <input
+                                        className="form-control"
+                                        type="text"
+                                        value = {this.setState.term}
+                                         onChange={e => this.setState({term: e.target.value})}
+                                        placeholder="¿Que estas buscando?"/>
                                 </div>
                             </form>
                         </div>

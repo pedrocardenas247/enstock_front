@@ -9,7 +9,7 @@ import SocialProfile from "./SocialProfile";
 class UserSidebar extends Component {
     state = {
         img: require('../../../assets/images/testi-img2.jpg'),
-        name: 'Mark Williamson',
+        name: 'Bodega de Regalos',
         date: 'Joined 4 years ago',
         address: 'Av. Colonial 3046, Cercado, Lima',
         number: '+7(111)123456789',

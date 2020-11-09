@@ -8168,6 +8168,10 @@ select,
   border-color: var(--rose-principal);
 }
 
+.icon-element img {
+ 
+}
+
 #particles-js {
   position: absolute;
   left: 0;
