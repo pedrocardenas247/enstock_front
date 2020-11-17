@@ -3,8 +3,8 @@ import BannerOneHeroHeading from './BannerOneHeroHeading'
 import BannerOneSearchInput from './BannerOneSearchInput'
 import BannerOneCategories from './BannerOneCategories'
 
-export default class BannerOne extends Component {
-    render() {
+const BannerOne = setCategory => {
+    
         return (
             <>
                 <section className="hero-wrapper">
@@ -20,7 +20,7 @@ export default class BannerOne extends Component {
                                 <BannerOneSearchInput />
 
                                 {/* Banner One Categories */}
-                                <BannerOneCategories />
+                                <BannerOneCategories setCategory={setCategory}/>
 
                             </div>
                         </div>
@@ -28,5 +28,7 @@ export default class BannerOne extends Component {
                 </section>
             </>
         )
-    }
+    
 }
+
+export default BannerOne;

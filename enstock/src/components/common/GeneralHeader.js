@@ -8,6 +8,10 @@ import HeaderMenuApp from "./HeaderMenuApp";
 import AppDownload from "./AppDownload";
 
 class GeneralHeader extends Component {
+  onTermSubmit = term => {
+    console.log(term);
+  }
+
   componentDidMount() {
     $(window).on("scroll", function () {
       //header fixed animation and control
@@ -37,7 +41,7 @@ class GeneralHeader extends Component {
                     <Logo url={this.state.logo} />
 
                     {/* Banner One Search Input */}
-                    <BannerOneSearchInput />
+                    <BannerOneSearchInput onFormSubmit={this.onTermSubmit}/>
                     {/* Navbar */}
                     <Navbar />
 

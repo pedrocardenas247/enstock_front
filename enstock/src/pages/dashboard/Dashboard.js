@@ -102,7 +102,7 @@ class Dashboard extends Component {
             }
         ],
         userImg: require('../../assets/images/team2.jpg'),
-        userName: 'Mark Williamson',
+        userName: 'Pedro Cardenas',
         userbio: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
         address: 'Av. Colonial 3046, Cercado, Lima',
         phoneNum: '+7(111)123456789',

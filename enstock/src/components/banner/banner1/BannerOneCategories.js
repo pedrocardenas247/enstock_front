@@ -1,17 +1,12 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { Component, useContext, useState } from 'react'
 import { RiTShirt2Line, RiComputerLine, RiRedditLine, RiHome8Line, RiMickeyLine } from 'react-icons/ri';
 import { GiChickenOven } from 'react-icons/gi';
-import {getCategories} from "../../../services/services.js";
+import { GlobalContext } from '../../../App';
 
 
-const BannerOneCategories = () =>{
-    const [category, setCategory] = useState([]);
+const BannerOneCategories = _ => {
 
-    useEffect(() => {
-        getCategories().then((rpta) => {
-          setCategory(rpta);
-        });
-      }, []);
+    const localGlobalContext = useContext(GlobalContext);
     
       return (
         <>
@@ -20,12 +15,12 @@ const BannerOneCategories = () =>{
                     o Seleccione una categoria:
                 </h5>
                 <div className="highlight-lists d-flex justify-content-center mt-4">
-                    {category.map((objCategory) => {
+                    {localGlobalContext.map(objCategory => {
                         return (
                             <div className="category-item" key={objCategory.id}>
-                                <a href={objCategory.path} className="d-block">
+                                <a href={objCategory.slug} className="d-block">
                                     <span className="icon-element">
-                                        <img src={objCategory.icon}/>
+                                        <img src={objCategory.icon_host}/>
                                         
                                     </span>
                                     {objCategory.title}

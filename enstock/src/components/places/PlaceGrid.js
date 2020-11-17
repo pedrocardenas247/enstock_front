@@ -1,146 +1,33 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react';
+import { getListStores } from "../../services/services";
 import {IoMdStar, IoMdStarHalf} from "react-icons/io";
 import {RiTShirt2Line} from "react-icons/ri";
 import {FiHeart} from "react-icons/fi";
 import {AiOutlineEye} from "react-icons/ai";
 import {Link} from "react-router-dom";
 
-class PlaceGrid extends Component {
-    state = {
-        items: [
-            {
-                bedge: 'Mas Buscados',
-                title: 'Bodega de Regalos',
-                titleUrl: '/listing-details',
-                stitle: 'Tienda de Ropa y Accesorios',
-                image: require('../../assets/images/img30.jpg'),
-                cardType: 'Ropa y Accesorios',
-                cardTypeIcon: <RiTShirt2Line />,
-                author: require('../../assets/images/small-team6.jpg'),
-                authorUrl: '#',
-                view: '204',
-                ratings: [
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStarHalf />,
-                    <IoMdStar className="last-star" />,
-                ],
-                ratingNum: '4.7'
-            },
-            {
-                bedge: 'Mas Buscados',
-                title: 'Bodega de Regalos',
-                titleUrl: '/listing-details',
-                stitle: 'Tienda de Ropa y Accesorios',
-                image: require('../../assets/images/img30.jpg'),
-                cardType: 'Ropa y Accesorios',
-                cardTypeIcon: <RiTShirt2Line />,
-                author: require('../../assets/images/small-team6.jpg'),
-                authorUrl: '#',
-                view: '204',
-                ratings: [
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStarHalf />,
-                    <IoMdStar className="last-star" />,
-                ],
-                ratingNum: '4.7'
-            },
-            {
-                bedge: 'Mas Buscados',
-                title: 'Bodega de Regalos',
-                titleUrl: '/listing-details',
-                stitle: 'Tienda de Ropa y Accesorios',
-                image: require('../../assets/images/img30.jpg'),
-                cardType: 'Ropa y Accesorios',
-                cardTypeIcon: <RiTShirt2Line />,
-                author: require('../../assets/images/small-team6.jpg'),
-                authorUrl: '#',
-                view: '204',
-                ratings: [
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStarHalf />,
-                    <IoMdStar className="last-star" />,
-                ],
-                ratingNum: '4.7'
-            },
-            {
-                bedge: 'Mas Buscados',
-                title: 'Bodega de Regalos',
-                titleUrl: '/listing-details',
-                stitle: 'Tienda de Ropa y Accesorios',
-                image: require('../../assets/images/img30.jpg'),
-                cardType: 'Ropa y Accesorios',
-                cardTypeIcon: <RiTShirt2Line />,
-                author: require('../../assets/images/small-team6.jpg'),
-                authorUrl: '#',
-                view: '204',
-                ratings: [
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStarHalf />,
-                    <IoMdStar className="last-star" />,
-                ],
-                ratingNum: '4.7'
-            },
-            {
-                bedge: 'Mas Buscados',
-                title: 'Bodega de Regalos',
-                titleUrl: '/listing-details',
-                stitle: 'Tienda de Ropa y Accesorios',
-                image: require('../../assets/images/img30.jpg'),
-                cardType: 'Ropa y Accesorios',
-                cardTypeIcon: <RiTShirt2Line />,
-                author: require('../../assets/images/small-team6.jpg'),
-                authorUrl: '#',
-                view: '204',
-                ratings: [
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStarHalf />,
-                    <IoMdStar className="last-star" />,
-                ],
-                ratingNum: '4.7'
-            },
-            {
-                bedge: 'Mas Buscados',
-                title: 'Bodega de Regalos',
-                titleUrl: '/listing-details',
-                stitle: 'Tienda de Ropa y Accesorios',
-                image: require('../../assets/images/img30.jpg'),
-                cardType: 'Ropa y Accesorios',
-                cardTypeIcon: <RiTShirt2Line />,
-                author: require('../../assets/images/small-team6.jpg'),
-                authorUrl: '#',
-                view: '204',
-                ratings: [
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStar />,
-                    <IoMdStarHalf />,
-                    <IoMdStar className="last-star" />,
-                ],
-                ratingNum: '4.7'
-            },
-        ]
-    }
-    render() {
+
+const PlaceGrid = _ => {
+
+    const [stores, setStores] = useState([])
+    
+    useEffect(() => {
+        getListStores().then((rpta) => {
+          setStores(rpta);
+        });
+      }, []);
+      
         return (
             <>
-                {this.state.items.map((item, index) => {
+                {stores.map(objStores => {
+                    
                     return (
-                        <div className="col-lg-4 column-td-6" key={index}>
+                        <div className="col-lg-4 column-td-6" key={objStores.category_match.id}>
                             <div className="card-item">
-                                <Link to={item.titleUrl} className="card-image-wrap">
+                                <Link to={objStores.category_match.slug} className="card-image-wrap">
                                     <div className="card-image">
-                                        <img src={item.image} className="card__img" alt="Place" />
-                                        <span className={item.titleIcon ? 'badge': 'badge badge-closed' }>{item.bedge}</span>
+                                        <img src={objStores.category_match.img1host} className="card__img" alt={objStores.category_match.slug} />
+                                        <span className={objStores.icon_host ? 'badge': 'badge badge-closed' }>{objStores.bedge}</span>
                                         <span className="badge-toggle" data-toggle="tooltip" data-placement="bottom" title="22 Likes">
                                             <FiHeart />
                                         </span>
@@ -148,41 +35,21 @@ class PlaceGrid extends Component {
                                 </Link>
                                 <div className="card-content-wrap">
                                     <div className="card-content">
-                                        <Link to={item.titleUrl}>
+                                        <Link to={objStores.titleUrl}>
                                             <h5 className="card-meta">
-                                                <span>{item.cardTypeIcon}</span> {item.cardType}
+                                                <span><img src={objStores.icon_host} alt=""/></span> {objStores.description}
                                             </h5>
-                                            <h4 className="card-title">{item.title}
-                                                <i>{item.titleIcon}</i>
+                                            <h4 className="card-title">{objStores.category_match.title}
+                                                <i>{objStores.titleIcon}</i>
                                             </h4>
                                             <p className="card-sub">
-                                                {item.stitle}
+                                                {objStores.description}
                                             </p>
                                         </Link>
-                                        <a href={item.authorUrl} className="author-img">
-                                            <img src={item.author} alt="author-img" />
+                                        <a href={objStores.authorUrl} className="author-img">
+                                            <img src={objStores.category_match.logo_host} alt={objStores.category_match.slug} />
                                         </a>
 
-                                    </div>
-                                    <div className="rating-row">
-                                        <div className="rating-rating">
-                                            {item.ratings.map((rating, index) => {
-                                                return (
-                                                    <span key={index}>{rating}</span>
-                                                )
-                                            })}
-                                            <span className="rating-count">{item.ratingNum}</span>
-                                        </div>
-                                        <div className="listing-info">
-                                            <ul>
-                                                <li><span className="info__count"><AiOutlineEye /></span> {item.view}</li>
-                                                <li>
-                                                    <span className="info__save" data-toggle="tooltip" data-placement="top" title="Bookmark">
-                                                        <FiHeart />
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -192,6 +59,6 @@ class PlaceGrid extends Component {
             </>
         );
     }
-}
+
 
 export default PlaceGrid;

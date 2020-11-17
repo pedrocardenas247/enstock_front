@@ -57,8 +57,10 @@ export default class BannerOneSearchInput extends Component {
         selectedCatOp: null,
         IcoSearch: require("../../../assets/images/ico_search.png"),
     }
-    onFormSubmit(e){
+
+    onFormSubmit = e => {
         e.preventDefault();
+        this.props.onFormSubmit(this.state.term);
     }
 
     handleChangeCat = () => {
@@ -74,7 +76,7 @@ export default class BannerOneSearchInput extends Component {
 
                     <div className="main-search-input-item">
                         <div className="contact-form-action">
-                            <form onSubmit={this.onFormSubmit} action="#">
+                            <form onSubmit={this.onFormSubmit} action="">
                                 <div className="form-group mb-0">
                                 <span className="form-icon">
                                     <FiSearch/>

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import GeneralHeader from "../../components/common/GeneralHeader";
 import Breadcrumb from "../../components/common/Breadcrumb";
 import PlaceGrid from "../../components/places/PlaceGrid";
@@ -7,19 +7,22 @@ import {FiRefreshCw} from "react-icons/fi";
 import NewsLetter from "../../components/other/cta/NewsLetter";
 import Footer from "../../components/common/footer/Footer";
 import ScrollTopBtn from "../../components/common/ScrollTopBtn";
+import StoresState from "../../context/stores/StoresState";
 
-class ListingGrid extends Component {
-    state = {
+const ListingGrid = () => {
+   
+    const state = {
         bdimg: require('../../assets/images/bread-bg.jpg'),
     }
-    render() {
+    
         return (
+            <StoresState>
             <main className="listing-grid">
                 {/* Header */}
                 <GeneralHeader />
 
                 {/* Breadcrumb */}
-                <Breadcrumb CurrentPgTitle="Ropa y Accesorios" SubTitle="Tiendas" img={this.state.bdimg}/>
+                <Breadcrumb CurrentPgTitle="Ropa y Accesorios" SubTitle="Tiendas" img={state.bdimg}/>
 
                 {/* Place Grid */}
                 <section className="card-area padding-top-40px padding-bottom-100px">
@@ -50,8 +53,9 @@ class ListingGrid extends Component {
 
                 <ScrollTopBtn />
             </main>
+        </StoresState>
         );
-    }
+    
 }
 
 export default ListingGrid;

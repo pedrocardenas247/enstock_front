@@ -4,7 +4,7 @@ import SocialProfile from "../../other/account/SocialProfile";
 class WidgetAuthorTwo extends Component {
     state = {
         img: require('../../../assets/images/testi-img2.jpg'),
-        name: 'Mark Williamson',
+        name: 'Pedro Cardenas',
         designation: 'Senior Web Developer',
         content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dolorem illo laborum magni, maxime omnis quam quod totam voluptatem voluptatibus?'
     }
